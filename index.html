@@ -9,8 +9,14 @@
     <script src="main.js"></script>
 </head>
 <body>
+
+
+<input id="myNewName" type="text " placeholder="New..">
+<button onclick="voegiemandtoe();">Add</button>
+
+
     
-    <ul>
+    <ul id="myList">
         <li>Christiaan</li>
         <li>Constant</li>
         <li>Dhiradj</li>
@@ -20,3 +26,16 @@
 
 </body>
 </html>
+
+
+<script>
+
+    function voegiemandtoe(){
+        var node = document.createElement("LI");                 // Create a <li> node
+        var sNaam = document.getElementById("myNewName").value;  
+        var textnode = document.createTextNode(sNaam);         // Create a text node
+        node.appendChild(textnode);                              // Append the text to <li>
+        document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
+    }
+
+</script>
