@@ -11,7 +11,8 @@
 <body>
 
 
-<input id="myNewName" type="text " placeholder="New..">
+<input id="myFilterBox" type="text" onkeyup="myFilterFunction();" placeholder="Filter..">
+<input id="myNewName" type="text" placeholder="New..">
 <button onclick="voegiemandtoe();">Add</button>
 
 
@@ -37,5 +38,34 @@
         node.appendChild(textnode);                              // Append the text to <li>
         document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
     }
+
+
+    function myFilterFunction(){
+    var sSearchWord = document.getElementById("myFilterBox").value;
+    console.log(sSearchWord);
+
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myFilterBox'); 
+    filter = input.value.toUpperCase(); 
+
+    ul = document.getElementById("myList");
+    li = ul.getElementsByTagName('li');
+
+    
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+   txtValue = li[i].innerHTML;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "x";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+
+
 
 </script>
